@@ -22,7 +22,7 @@ export interface ITransaction {
   transactionType: TX_Type;
   amount: number;
   fee?: number;
-  commission: number;
-  status: TX_Status;
-  initiatorRole: Role;
+  commission?: number;
+  status?: TX_Status;
+  initiatorRole?: Role;
 }
