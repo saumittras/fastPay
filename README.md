@@ -29,29 +29,70 @@ This is a backend server built with **Express**, **TypeScript**, **Mongoose**, a
 ## 📁 Project Structure
 
 ```
-src/
-├── app.ts
-├── server.ts
-├── config/
-| ├── books.controller.ts
-├── controllers/
-│ ├── books.controller.ts
-│ └── borrow.controller.ts
-├── models/
-│ ├── books.model.ts
-│ └── borrow.model.ts
-├── interfaces/
-│ ├── book.interface.ts
-│ ├── borrow.interface.ts
-│ └── error.interface.ts
-├── errors/
-│ ├── apiError.ts
-│ └── handleValidationError.ts
-├── middlewares/
-│ └── globalErrorHandler.ts
-└── routes/
-├── books.route.ts
-└── borrow.route.ts
+digital-wallet-api/
+├── src/
+│   ├── app.ts                      # Express app config & middleware loader
+│   ├── server.ts                   # Entry point (start server)
+│
+│   ├── config/                     # Global configurations (DB, env)
+│   │   ├── database.ts
+│   │   └── env.ts
+│
+│   ├── constants/                  # Constant values (roles, status, etc.)
+│   │   └── roles.ts
+│
+│   ├── modules/                    # Feature-wise modules
+│   │   ├── auth/                   # Auth: login, register
+│   │   │   ├── auth.controller.ts
+│   │   │   ├── auth.service.ts
+│   │   │   ├── auth.routes.ts
+│   │   │   └── auth.validation.ts
+│   │   │
+│   │   ├── user/                   # User module (User + Agent + Admin)
+│   │   │   ├── user.model.ts
+│   │   │   ├── user.controller.ts
+│   │   │   ├── user.service.ts
+│   │   │   ├── user.routes.ts
+│   │   │   └── user.validation.ts
+│   │   │
+│   │   ├── wallet/
+│   │   │   ├── wallet.model.ts
+│   │   │   ├── wallet.controller.ts
+│   │   │   ├── wallet.service.ts
+│   │   │   ├── wallet.routes.ts
+│   │   │   └── wallet.validation.ts
+│   │   │
+│   │   ├── transaction/
+│   │   │   ├── transaction.model.ts
+│   │   │   ├── transaction.controller.ts
+│   │   │   ├── transaction.service.ts
+│   │   │   ├── transaction.routes.ts
+│   │   │   └── transaction.validation.ts
+│   │
+│   ├── middlewares/               # Middleware (auth, error handling, role check)
+│   │   ├── auth.middleware.ts
+│   │   ├── role.middleware.ts
+│   │   └── error.middleware.ts
+│
+│   ├── utils/                      # Reusable helper functions
+│   │   ├── jwt.ts
+│   │   ├── bcrypt.ts
+│   │   └── response.ts
+│
+│   ├── interfaces/                # TypeScript interfaces & types
+│   │   ├── user.interface.ts
+│   │   ├── wallet.interface.ts
+│   │   └── transaction.interface.ts
+│
+│   └── routes/                     # All combined route handlers
+│       └── index.ts
+│
+├── .env                            # Environment variables
+├── .gitignore
+├── package.json
+├── tsconfig.json                   # TypeScript config
+└── README.md
+
 ```
 
 ---
