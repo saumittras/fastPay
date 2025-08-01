@@ -1,5 +1,6 @@
 import bcryptjs from "bcryptjs";
 import { envVars } from "../../config/env";
+import { Wallet } from "../wallet/wallet.model";
 import { IUser, Role } from "./user.interface";
 import { User } from "./user.model";
 
@@ -14,6 +15,7 @@ const createUser = async (payload: Partial<IUser>) => {
     password as string,
     Number(envVars.BCRYPT_SALT_ROUND)
   );
+
   const hashPin = await bcryptjs.hash(
     pinNumber as string,
     Number(envVars.BCRYPT_SALT_ROUND)
@@ -26,6 +28,15 @@ const createUser = async (payload: Partial<IUser>) => {
     createdBy: Role.USER,
     ...rest,
   });
+
+  if (user) {
+    const walletData = {
+      userId: user?._id,
+      accountNo: Number(user?.phone),
+    };
+
+    const wallet = await Wallet.create(walletData);
+  }
   return user;
 };
 

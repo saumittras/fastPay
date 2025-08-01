@@ -18,13 +18,13 @@ export enum AccountStatus {
 export interface IUser {
   _id?: ObjectId;
   name: string;
-  email?: string;
+  // email?: string;
   phone: string;
   password: string;
   pinNumber: string;
   picture?: string;
   address?: string;
-  isActive?: AccountStatus[];
+  isActive?: AccountStatus;
   isNIDVerified?: boolean;
   role?: Role[];
   createdBy?: Role[];

@@ -1,29 +1,33 @@
-import { ITransaction } from "./transaction.interface";
-import { Transaction } from "./transaction.model";
+// from: Types.ObjectId;
+// to: Types.ObjectId;
+// transactionId: string;
+// transactionType: TX_Type;
+// amount: number;
+// fee?: number;
+// commission?: number;
+// status?: TX_Status;
+// initiatorRole?: Role;
 
-const getTXId = () => {
-  return `TX_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
+const sendMoney = () => {
+  // const {to, amount} = payload
 };
-
-// const sendMoney = async (payload: Partial<ITransaction>) => {
-//   const transactionId = getTXId();
-//   const session = await Transaction.startSession();
-
-//   session.startTransaction();
-//   try {
-//   } catch (error) {
-//     await session.abortTransaction();
-//     session.endSession();
-//     throw error;
-//   }
-// };
-
-const sendMoney = async (payload: Partial<ITransaction>) => {
-  const transactionId = getTXId();
-  const transaction = await Transaction.create({ transactionId, ...payload });
-  return transaction;
+const addMoney = () => {
+  //
+};
+const withdrowMoney = () => {
+  //
+};
+const cashIn = () => {
+  //
+};
+const cashOut = () => {
+  //
 };
 
 export const TransactionServices = {
   sendMoney,
+  addMoney,
+  withdrowMoney,
+  cashIn,
+  cashOut,
 };

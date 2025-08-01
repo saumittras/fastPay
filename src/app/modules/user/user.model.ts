@@ -4,9 +4,9 @@ import { AccountStatus, IUser, Role } from "./user.interface";
 const userSchema = new Schema<IUser>(
   {
     name: { type: String, required: true },
-    email: { type: String, unique: true },
+    // email: { type: String },
     phone: { type: String, unique: true, required: true },
-    password: { type: String },
+    password: { type: String, required: true },
     pinNumber: { type: String, required: true },
     picture: { type: String },
     address: { type: String },

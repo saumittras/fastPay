@@ -1,17 +1,31 @@
 import { Types } from "mongoose";
-import { AccountStatus } from "../user/user.interface";
 
 export enum CurrencyType {
   BDT = "BDT",
   USD = "USD",
 }
 
+export enum WalletType {
+  USER = "USER",
+  AGENT = "AGENT",
+  PENDINGAGENT = "PENDINGAGENT",
+}
+
+export enum WalletStatus {
+  UNVERIFIED = "UNVERIFIED",
+  BLOCKED = "BLOCKED",
+  ACTIVE = "ACTIVE",
+  SUSPENDED = "SUSPENDED",
+}
+
 export interface IWallet {
+  _id?: string;
   userId: Types.ObjectId;
+  accountNo: number;
   balance: number;
   currency: CurrencyType;
-  status: AccountStatus;
+  walletType: WalletType;
+  walletStatus: WalletStatus;
   blockedReason?: string;
-  isActive: boolean;
   isNIDVerified: boolean;
 }

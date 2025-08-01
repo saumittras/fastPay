@@ -13,7 +13,8 @@ const createUser = catchAsync(
     sendResponse(res, {
       success: true,
       statusCode: httpStatus.CREATED,
-      message: "User Created Successfully",
+      message:
+        "User and Wallet Created Successfully. Please Verify the wallet by NID Card",
       data: user,
     });
   }
