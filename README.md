@@ -1,4 +1,4 @@
-# 📚 Library Management System Backend
+# 📚 Fast Pay Digital Wallet System Backend
 
 This is a backend server built with **Express**, **TypeScript**, **Mongoose**, and **MongoDB** to manage a library system. It supports features like managing books, borrowing books, and validation with centralized error handling.
 
@@ -32,6 +32,8 @@ This is a backend server built with **Express**, **TypeScript**, **Mongoose**, a
 src/
 ├── app.ts
 ├── server.ts
+├── config/
+| ├── books.controller.ts
 ├── controllers/
 │ ├── books.controller.ts
 │ └── borrow.controller.ts
@@ -59,8 +61,8 @@ src/
 ### ✅ 1. Clone the Repository
 
 ```bash
-git clone https://github.com/saumittras/L2_Assignment_3.git
-cd library-management-backend
+git clone https://github.com/saumittras/fastPay.git
+cd fastPay
 
 ```
 
@@ -75,8 +77,22 @@ npm install
 <p>Create a .env file in the root and add:</p>
 
 ```
-DB_USERNAME = Your_mongoDB_user_name
-DB_PASSWORD = Your_mongoDB_Passwoard
+PORT=5000
+NODE_ENV=development
+MONGO_DB = Your_credintials
+
+#JWT
+JWT_ACCESS_SECRET = access_secret
+JWT_ACCESS_EXPIRE = 1h
+JWT_REFRESH_SECRET = JWT_REFRESH_SECRET
+JWT_REFRESH_EXPIRE = 1d
+
+#BCRYPT
+BCRYPT_SALT_ROUND = 5
+
+#SUPER_ADMIN
+SUPER_ADMIN_EMAIL = super@admin.com
+SUPER_ADMIN_PASSWORD = 'Your_credintials'
 ```
 
 <p>You can replace DATABASE_URL with your own MongoDB Atlas URL as well.</p>
@@ -109,7 +125,7 @@ npm start
 | PATCH  | `/api/books/:id` | Update a book by ID |
 | DELETE | `/api/books/:id` | Delete a book by ID |
 
-### Borrow
+### User Create
 
 | Method | Endpoint      | Description                   |
 | ------ | ------------- | ----------------------------- |
@@ -118,14 +134,9 @@ npm start
 
 ### Important Links
 
-GitHub Repository: <a href='https://github.com/saumittras/L2_Assignment_3'>Link</a><br>
-Live Deployment: <a href='https://library-b5a3.vercel.app/'>Link</a></br>
-Explanation Video: <a href='https://www.loom.com/share/af874f5163c24fb9b620eaa41a25ed00?sid=104d9744-6dd1-497e-a925-7f1bd19fdf78'>Link</a>
-
-GitHub:
-client: https://github.com/saumittras/b5a4-vidya-mondir-client
-server: https://github.com/saumittras/b5a4-vidya-mondir-backend
-
-Live Link:
-client: https://b5a4-vidyamondir.web.app/
-server: https://b5a4.vercel.app/
+GitHub Repository: <a href='https://github.com/saumittras/fastPay'>Link</a><br>
+Live Deployment: <a href='fastpay-b5a5.vercel.app'>Link</a></br>
+Explanation Video: <a href='https://drive.google.com/drive/folders/1jSynwgexK76BIwUbgvSenjC11EOYRTDD?usp=sharing'>Link</a>
+Video Link: https://drive.google.com/drive/folders/1jSynwgexK76BIwUbgvSenjC11EOYRTDD?usp=sharing
+Readme:<a href='https://github.com/saumittras/fastPay/blob/main/README.md'>Link</a>
+Postman JSON:<a href='https://github.com/saumittras/fastPay/blob/main/Fast%20Pay.postman_collection.json'>Link</a>
